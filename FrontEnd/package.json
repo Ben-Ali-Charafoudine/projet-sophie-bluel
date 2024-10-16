@@ -1,0 +1,14 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "scrip_old.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vite": "^5.4.8"
+  }
+}

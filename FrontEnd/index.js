@@ -1,7 +1,10 @@
-import { loadWorks, works } from "./scripts/works";
-import { createFilterButtons } from "./scripts/filters";
 
-createFilterButtons();
+
+import { loadWorks, works, createWorkThumbnails, } from "./scripts/works.js";
+ 
+import { loadCategories, createFilterButtons, categories } from "./scripts/filters.js";
 
 loadWorks();
-console.log(works);
+loadCategories();
+
+

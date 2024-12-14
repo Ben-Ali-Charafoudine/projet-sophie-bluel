@@ -3,17 +3,20 @@ import { works, createWorkThumbnails } from './works.js';
 export let categories = [];
 
 export function createFilterButtons() {
+    const gallery = document.querySelector(".gallery")
     // Sélectionner l'élément contenant les filtres
     const filtresContainer = document.querySelector(".filters");
-        
+      
     // Créer le bouton "Tous"
+   
     const bouton = document.createElement("button");
     bouton.classList.add('filter-btn');
     bouton.innerText = "Tous";
     filtresContainer.appendChild(bouton);
+    
 
     bouton.addEventListener('click', () => {
-        createWorkThumbnails(works); 
+        createWorkThumbnails(works, gallery, true); 
         console.log('Bouton tous');
     })
 
@@ -31,12 +34,13 @@ export function createFilterButtons() {
             // Condition => dans le filter doit garder uniquement les works qui ont le categoryId identique au categorie.id du bouton qu'on vient de cliquer
             const filteredWorks = works.filter(work => work.categoryId === categorie.id);
              // Appeler la fonction pour afficher uniquement les projets filtrés
-            createWorkThumbnails(filteredWorks);
+            createWorkThumbnails(filteredWorks, gallery, true,false);
             console.log(filteredWorks);
         })
 
         // Attacher les boutons au conteneur de filtres
         filtresContainer.appendChild(bouton);
+       
     });
 
 }

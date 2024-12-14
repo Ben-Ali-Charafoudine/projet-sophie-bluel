@@ -1,20 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+	rel="stylesheet">
 	<meta name="description" content="">
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+	
 	<link rel="stylesheet" href="./assets/style.css">
 	
 	<script type="module" src="index.js"></script>
 </head>
+
 <body>
-	<!-- Pour la modale utiliser ça -->
-	<dialog></dialog>
+	
+	<!--modale gallery-->
+	<dialog class="galleryModale"  >
+		<article class="modal-content">
+			<!-- Bouton de fermeture -->
+			<button id="closeModalOne" class="close">
+			  <i class="mdi mdi-close"></i>
+			</button>
+			<header class="modal-header">
+			  <h2 class="titleModal">Galerie photos</h2>
+			</header>
+			<section class="contenairGalleryModif">
+			  <!-- Les images seront générées dynamiquement via JS -->
+			</section>
+			<footer class="modal-footer">
+			  <button class="twomodal">Ajouter une photo</button>
+			</footer>
+		</article>
+	</dialog>
+	
+	
+	<!--modale ajout ou supression-->
+	<dialog class="modifModale">
+		<!-- Bouton de fermeture -->
+		<button id="closeModalTwo" class="close">
+			<i class="mdi mdi-close"></i>
+		</button>
+		<header>
+			<h2>Ajout photo</h2>
+			
+		</header>
+		<section>
+			<form id="ajoutPhotoForm" class="ajoutGallery">
+				<label for="image">Image</label>
+				<input type="file" name="image" id="image" required>
+				
+				<label for="titre">Titre</label>
+				<input type="text" name="titre" id="titre" required>
+				
+				<label for="categorie">Catégorie</label>
+				<select name="categorie" id="categorie" required>
+					<option value="" disabled selected>Choisir une catégorie</option>
+					<option value="appartement">Appartement</option>
+					<option value="hotel">Hôtel et restaurants</option>
+					<option value="bureau">Bureau</option>
+				</select>
+			</form>
+		</section>
+		<footer>
+			<button type="submit">Valider</button>
+		</footer>
+	</dialog>
 	
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -28,52 +84,65 @@
 			</ul>
 		</nav>
 	</header>
-	<main >
+	<main>
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
 			</figure>
 			<article>
 				<h2>Designer d'espace</h2>
-				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
-				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
-			</article>
-		</section>
-		<section id="portfolio">
-			<h2>Mes Projets</h2>
-			<div class="gallery">
-				<div class="filters">
-					<!-- Ici on insère les boutons -->
-				</div>
-				<!--figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-				</figure-->
+				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
+					finale du chantier.</p>
+					<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
+						couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
+						chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+						<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
+							décorateur(trice)</p>
+						</article>
+					</section>
+					
+					<section id="portfolio">
+						<div class="titletwo">
+							<i class="mdi mdi-square-edit-outline"></i>
+						<button class="btnModifGallery">Modifier</button>
+						</div>
+						<h2>Mes Projets</h2>
+
+						<div class="gallery">
+							<div class="filters">
+								<!-- Ici on insère les boutons -->
+								<!-- Bouton pour ouvrir la modale -->
+							</div>
+							<!--figure>
+							<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
+							<figcaption>Abajour Tahina</figcaption>
+							</figure-->
+							
+						</div>
+					</section>
+					<section id="contact">
+						<h2>Contact</h2>
+						<p>Vous avez un projet ? Discutons-en !</p>
+						<form action="#" method="post">
+							<label for="name">Nom</label>
+							<input type="text" name="name" id="name">
+							<label for="email">Email</label>
+							<input type="email" name="email" id="email">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" cols="30" rows="10"></textarea>
+							<input type="submit" value="Envoyer">
+						</form>
+					</section>
+				</main>
 				
-			</div>
-		</section>
-		<section id="contact">
-			<h2>Contact</h2>
-			<p>Vous avez un projet ? Discutons-en !</p>
-			<form action="#" method="post">
-				<label for="name">Nom</label>
-				<input type="text" name="name" id="name">
-				<label for="email">Email</label>
-				<input type="email" name="email" id="email">
-				<label for="message">Message</label>
-				<textarea name="message" id="message" cols="30" rows="10"></textarea>
-				<input type="submit" value="Envoyer">
-			</form>
-		</section>
-	</main>
-	
-	<footer>
-		<nav>
-			<ul>
-				<li>Mentions Légales</li>
-			</ul>
-		</nav>
-	</footer>
-</body>
-</html>
+				<footer>
+					<nav>
+						<ul>
+							<li>Mentions Légales</li>
+						</ul>
+					</nav>
+				</footer>
+				
+			</body>
+			
+			</html>

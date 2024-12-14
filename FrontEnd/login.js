@@ -1,4 +1,6 @@
 
+
+
 //1-Ajoutez un écouteur d'événement  sur le formulaire pour détecter lorsqu'il est envoyé.
 const formulaire = document.getElementById("loginForm");
 formulaire.addEventListener("submit", (event) => {
@@ -10,7 +12,7 @@ formulaire.addEventListener("submit", (event) => {
 
     loadLogin();
 });
-function donneesConnexion() {
+ function donneesConnexion() {
     //2. Récupérer les donées
     const userEmail = document.getElementById("email").value;
     const userPassword = document.getElementById("password").value;
@@ -27,50 +29,10 @@ function donneesConnexion() {
 console.log(donneesConnexion);
 
 // Fonction pour vérifier si un token existe et ajuster l'interface
-export function gererAffichageBoutons() {
-    const boutonLogin = document.querySelector(".loging"); // Bouton login
-    const boutonLogout = document.querySelector(".logout"); // Bouton logout
 
-  
-  
-    // Vérifie si le token est dans le localStorage
-    if (localStorage.getItem("token")) {
-      // Si un token existe, afficher logout et cacher login
-      console.log("Token trouvé, utilisateur connecté !");
-      boutonLogin.style.display = "none";
-      boutonLogout.style.display = "block";
-    } else {
-      // Sinon, afficher login et cacher logout
-      console.log("Aucun token, utilisateur non connecté.");
-      boutonLogin.style.display = "block";
-      boutonLogout.style.display = "none";
-    }
-  }
-  console.log(gererAffichageBoutons);
-  
-  // Appeler la fonction au chargement de la page
- document.addEventListener("DOMContentLoaded",gererAffichageBoutons);
-  
-  // Fonction de déconnexion
- export function deconnexion() {
-    // Supprimer le token du localStorage
-    localStorage.removeItem("token");
-    console.log("Utilisateur déconnecté.");
-    // Réajuster les boutons après déconnexion
-    
-   
-// Ajouter un écouteur d'événement sur le bouton logout
-document.addEventListener("DOMContentLoaded", () => {
-    const boutonLogout = document.querySelector(".logout");
-    if (boutonLogout) {
-        boutonLogout.addEventListener("click", deconnexion);
-    }
-});
- }
-console.log(deconnexion);
 
 // appeler la fonction avec fetch
- function loadLogin() {
+ export function loadLogin() {
     fetch("http://localhost:5678/api/users/login", {
         // Ecrire des choses ici pour envoyer les données
         //4. Les envoyer avec fetch au server
@@ -93,7 +55,7 @@ console.log(deconnexion);
             console.log("utilisateur connecte");
 
             window.location.href = 'index.html';
-               
+              
         } else {
             const eurreurMessage = document.querySelector(".error-conteneur");
             if (eurreurMessage) {
@@ -105,4 +67,8 @@ console.log(deconnexion);
     });
    
 }
+
+
+
+
 
